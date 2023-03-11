@@ -26,6 +26,9 @@ namespace GolfClubApp.Migrations.Booking
                     b.Property<int>("MemberId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("NumMembers")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime>("Time")
                         .HasColumnType("TEXT");
 
