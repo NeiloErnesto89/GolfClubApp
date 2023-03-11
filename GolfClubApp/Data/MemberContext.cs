@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using GolfClubApp.Models;
 
 
 namespace GolfClubApp.Data
@@ -11,6 +12,8 @@ namespace GolfClubApp.Data
         { }
 
         public DbSet<GolfClubApp.Models.Member> Member { get; set; } = default!;
+
+        public DbSet<GolfClubApp.Models.Booking> Booking { get; set; } = default!;
 
     }
 }

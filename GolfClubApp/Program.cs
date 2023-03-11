@@ -10,6 +10,10 @@ builder.Services.AddRazorPages();
 var connectionString = builder.Configuration.GetConnectionString("MemberContext");
 builder.Services.AddSqlite<MemberContext>(connectionString);
 
+// adding bookingcontext
+var connectionString2 = builder.Configuration.GetConnectionString("BookingContext");
+builder.Services.AddSqlite<BookingContext>(connectionString2);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

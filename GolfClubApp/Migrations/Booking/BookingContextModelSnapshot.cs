@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace GolfClubApp.Migrations
+namespace GolfClubApp.Migrations.Booking
 {
-    [DbContext(typeof(MemberContext))]
-    partial class MemberContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(BookingContext))]
+    partial class BookingContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
