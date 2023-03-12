@@ -5,13 +5,15 @@
 
 <h1> Members Handicap Ranking Table</h1>
 
+<p> Please use the scrolling symbol (&#x25b4;&#x25be;) on the right handside to sort each column</p>
+
 <table id="Exampledatatable" class="table table-bordered">
     <thead>
         <tr>
             <th scope="col">Handicap</th>
             <th scope="col">Name</th>     
             <th scope="col">Gender</th>
-            <th scope="col">Ranking</th>
+            <th scope="col">Ranking by Handicap</th>
         </tr>
     </thead>
     <tbody>
@@ -24,10 +26,12 @@
 
         @{
             int counter = 1;
-
+            var sortedMembers = Model.Member.OrderBy(m => m.Handicap);
         }
         
-        @foreach (var item in Model.Member)
+        @*Model.Member*@
+
+        @foreach (var item in sortedMembers) 
         {
             <tr>
                 <td>@item.Handicap</td>
