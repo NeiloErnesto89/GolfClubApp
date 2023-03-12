@@ -5,7 +5,7 @@
 
 <h1> Members Handicap Ranking Table</h1>
 
-<table id="Exampledatatable" class="table table-striped">
+<table id="Exampledatatable" class="table table-bordered">
     <thead>
         <tr>
             <th scope="col">Handicap</th>
@@ -22,9 +22,9 @@
             <td>mdo</td>
         </tr>*@
 
-       @* @{
+        @{
             int counter = 1;
-        }*@
+        }
         
         @foreach (var item in Model.Member)
         {
@@ -32,10 +32,10 @@
                 <td>@item.Handicap</td>
                 <td>@item.Name</td>               
                 <td>@item.Sex</td>
-                <td>1</td>
-                @*<td>@counter</td>*@
+                @*<td>1</td>*@
+                <td>@counter</td>
             </tr>
-            @*counter++;*@
+            counter++;
         }
 
     </tbody>
