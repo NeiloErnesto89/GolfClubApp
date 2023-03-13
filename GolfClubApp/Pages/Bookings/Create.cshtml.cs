@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using GolfClubApp.Data;
 using GolfClubApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GolfClubApp.Pages.Bookings
 {
@@ -38,18 +39,17 @@ namespace GolfClubApp.Pages.Bookings
                 return Page();
             }
 
-            //if (_context.Booking)
-
-
-            // Check if the member has already booked on the chosen date
-            //var existingBooking = await _context.Booking.Where(b => b.MemberId == Booking.MemberId && b.Time == Booking.Time)
-            // .FirstOrDefaultAsync();
-
+            // Check if the member has an existing booking on the specified given date
+            //var existingBooking = await _context.Booking.FirstOrDefaultAsync(b => b.MemberId == Booking.MemberId && b.Time.Date == Booking.Time.Date);
             //if (existingBooking != null)
             //{
-            //    ModelState.AddModelError(string.Empty, "The member has already booked on the chosen date.");
+                
+            //    ModelState.AddModelError("Booking.Time", $"Member {existingBooking.Member.Name} already has a booking on {existingBooking.Time.Date.ToShortDateString()}");
+            //    ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Name"); //reset member ID
             //    return Page();
             //}
+            // end of test
+
 
             _context.Booking.Add(Booking);
             await _context.SaveChangesAsync();

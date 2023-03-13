@@ -3,12 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using GolfClubApp.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+using GolfClubApp.Data;
 
 namespace GolfClubApp.Models
 {
     //: IValidatableObject
     public class Booking : IValidatableObject
     {
+        //private object _dbContext;
+
         [Key]
         public int Id { get; set; }
 
@@ -37,6 +41,12 @@ namespace GolfClubApp.Models
         //    throw new NotImplementedException();
         //}
 
+        //private readonly BookingContext _context;
+
+        //public Booking(BookingContext context)
+        //{
+        //    _context = context;
+        //}
 
         // validation with valdation context
         // works but member ID context con is broken after validation so need to return 
@@ -55,6 +65,22 @@ namespace GolfClubApp.Models
             {
                 validationResults.Add(new ValidationResult("You must choose a time slot on 15 minute intervals e.g. 9.00am, 9.15am etc.", new[] { "Time" }));
             }
+
+            //if (_context.Booking.Any(b => b.MemberId == MemberId && b.Time.Date == Time.Date))
+            //{
+            //    validationResults.Add(new ValidationResult("This member has already booked a tee time on this date."));
+            //}
+
+            // Check if a member has already created a booking on this day
+            //if (MemberId.HasValue)
+            //{
+            //    var existingBooking = validationContext.FirstOrDefault(b => b.MemberId == MemberId.Value && b.Time.Date == Time.Date);
+            //    if (existingBooking != null)
+            //    {
+            //        validationResults.Add(new ValidationResult("This member has already booked a tee time on this day", new[] { "MemberId" }));
+            //    }
+            //}
+
 
             return validationResults;
 
