@@ -46,6 +46,7 @@ namespace GolfClubApp.Pages.Bookings
         {
             if (!ModelState.IsValid)
             {
+                ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Name"); //reset member ID
                 return Page();
             }
 
