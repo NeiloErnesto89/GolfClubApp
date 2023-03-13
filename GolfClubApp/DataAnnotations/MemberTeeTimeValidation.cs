@@ -7,10 +7,10 @@ namespace GolfClubApp.DataAnnotations
 {
     public class MemberTeeTimeValidation : ValidationAttribute
     {
-        public const string EARLIEST_TEE_TIME = "you must a time now or in the future - not in the past!!";
+        public const string SAME_DAY_BOOKING= "You already have a booking on this day and you can only have one booking per day";
 
         // earliest time
-        private DateTime earliestTime = DateTime.UtcNow;
+        //private DateTime earliestTime = DateTime.UtcNow;
 
  
 
@@ -32,10 +32,10 @@ namespace GolfClubApp.DataAnnotations
             }
 
             // check if time is less than earliest allowed time (now)
-            if (time < earliestTime )
-            {
-                return new ValidationResult(EARLIEST_TEE_TIME);
-            }
+            //if (time == earliestTime )
+            //{
+            //    return new ValidationResult(SAME_DAY_BOOKING);
+            //}
 
             // return success
             return ValidationResult.Success;

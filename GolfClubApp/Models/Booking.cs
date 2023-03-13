@@ -21,8 +21,6 @@ namespace GolfClubApp.Models
 
         public DateTime Time { get; set; }
 
-
-
         public int? MemberId { get; set; }
 
         //[Range(1, 4, ErrorMessage = "The tee time booking must include between 1 and 4 members.")]

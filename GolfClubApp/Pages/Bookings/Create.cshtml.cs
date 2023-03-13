@@ -38,6 +38,19 @@ namespace GolfClubApp.Pages.Bookings
                 return Page();
             }
 
+            //if (_context.Booking)
+
+
+            // Check if the member has already booked on the chosen date
+            //var existingBooking = await _context.Booking.Where(b => b.MemberId == Booking.MemberId && b.Time == Booking.Time)
+            // .FirstOrDefaultAsync();
+
+            //if (existingBooking != null)
+            //{
+            //    ModelState.AddModelError(string.Empty, "The member has already booked on the chosen date.");
+            //    return Page();
+            //}
+
             _context.Booking.Add(Booking);
             await _context.SaveChangesAsync();
 
