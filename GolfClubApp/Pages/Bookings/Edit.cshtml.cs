@@ -50,6 +50,31 @@ namespace GolfClubApp.Pages.Bookings
                 return Page();
             }
 
+            // Check if the member has an existing booking on the specified given date
+            var existingBooking = await _context.Booking.FirstOrDefaultAsync(b => b.MemberId == Booking.MemberId && b.Time.Date == Booking.Time.Date);
+            if (existingBooking != null)
+            {
+                ModelState.AddModelError(string.Empty, "This Member has a booking already on this date - try another date!");
+                ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Name"); //reset member ID
+                return Page();
+            }
+            // end of test
+
+
+            // test to ensure that only 4 players can book the same time (e.g john, joe, mary & sally (max) can play at 9.15am 
+
+            var existingBookings = await _context.Booking.Where(b => b.Time.Date == Booking.Time.Date && b.Time.TimeOfDay == Booking.Time.TimeOfDay).ToListAsync();
+            if (existingBookings.Count >= 4)
+            {
+                ModelState.AddModelError(string.Empty, "This time slot is already fully booked by 4 other members!");
+                ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Name"); //reset member ID
+                return Page();
+            }
+            // end of test
+
+
+
+
             _context.Attach(Booking).State = EntityState.Modified;
 
             try
