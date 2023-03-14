@@ -22,7 +22,7 @@ namespace GolfClubApp.Pages.Bookings
 
         public IActionResult OnGet()
         {
-        ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Name");
+            ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Name");
             return Page();
         }
 
@@ -39,15 +39,24 @@ namespace GolfClubApp.Pages.Bookings
                 return Page();
             }
 
-            // Check if the member has an existing booking on the specified given date
-            //var existingBooking = await _context.Booking.FirstOrDefaultAsync(b => b.MemberId == Booking.MemberId && b.Time.Date == Booking.Time.Date);
-            //if (existingBooking != null)
+            //var booking = await _context.Booking.FirstOrDefaultAsync(m => m.Id == id);
+            //if (booking == null)
             //{
-                
-            //    ModelState.AddModelError("Booking.Time", $"Member {existingBooking.Member.Name} already has a booking on {existingBooking.Time.Date.ToShortDateString()}");
+            //    ModelState.AddModelError("Booking.Time", $"Member {existingBooking.Member.Name} already has a booking on {existingBooking.Time.Date:d}");
             //    ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Name"); //reset member ID
-            //    return Page();
+            //                                                                          //    return Page();
             //}
+
+            // Check if the member has an existing booking on the specified given date
+            var existingBooking = await _context.Booking.FirstOrDefaultAsync(b => b.MemberId == Booking.MemberId && b.Time.Date == Booking.Time.Date);
+            if (existingBooking != null)
+            {
+                ModelState.AddModelError(string.Empty, "Member has a booking already on this date.");
+                //ModelState.AddModelError("Booking.Time", $"Member {existingBooking.Member.Name} already has a booking on {existing
+                //Booking.Time.Date.ToShortDateString()}");
+                ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Name"); //reset member ID
+                return Page();
+            }
             // end of test
 
 

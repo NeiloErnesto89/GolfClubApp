@@ -66,6 +66,16 @@ namespace GolfClubApp.Models
                 validationResults.Add(new ValidationResult("You must choose a time slot on 15 minute intervals e.g. 9.00am, 9.15am etc.", new[] { "Time" }));
             }
 
+
+            // Check if a booking already exists with the same member on the same day
+            //var existingBooking = validationContext.Bookings.FirstOrDefault(b => b.MemberId == MemberId && b.Time.Date == Time.Date);
+            //if (existingBooking != null)
+            //{
+            //    validationResults.Add(new ValidationResult($"Member {existingBooking.Member.Name} already has a booking on {existingBooking.Time.Date.ToShortDateString()}", new[] { "Time" }));
+            //}
+
+
+
             //if (_context.Booking.Any(b => b.MemberId == MemberId && b.Time.Date == Time.Date))
             //{
             //    validationResults.Add(new ValidationResult("This member has already booked a tee time on this date."));
@@ -84,26 +94,8 @@ namespace GolfClubApp.Models
 
             return validationResults;
 
-            //    new[] { "Time" })
-
-            //if (Time < DateTime.UtcNow)
-            //{
-            //    yield return new ValidationResult("You can't book a tee time in the past", new[] { "Time" });
-            //    yield break;
-            //}
-
-            //if (Time.Minute % 15 != 0)
-            //{
-            //    yield return new ValidationResult("You must choose a time slot on 15 minute intervals e.g. 9.00am, 9.15am etc.", new[] { "Time" });
-            //    yield break;
-            //}
-
-
-
-            // If all validation passes, return an empty result
-
-            //yield return ValidationResult.Success;
-            //}
+            
         }
+
     }
 }

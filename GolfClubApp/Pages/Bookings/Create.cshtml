@@ -21,6 +21,8 @@
             <label asp-for="Booking.Time" class="control-label" ></label>
                 <input asp-for="Booking.Time" class="form-control" />
                 <span asp-validation-for="Booking.Time" class="text-danger"></span>
+                @*<div class="alert alert-danger">*@
+                    <p>@Html.ValidationSummary()</p>
                 
             </div>
             
