@@ -35,7 +35,8 @@
                 <label asp-for="Member.Sex" class="control-label">Select Your Gender</label>
                 <select asp-for="Member.Sex" class="form-control">
                     <option value="Female">Female</option>
-                    <option value="Male">Male</option>
+                    @*if Male used, then search functionality doesnt work as 'male' produces both female and male*@
+                    <option value="Man">Man</option> 
                     <option value="Other">Other</option>
                     
                 </select>

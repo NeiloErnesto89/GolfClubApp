@@ -5,9 +5,9 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Create Your Booking</h1>
 
-<h4>Booking</h4>
+<h6><em>Rules: You can not book more than once a day. You must book on the 15 minute intervals (9.00, 9.15) and a maximum of 4 members can book at any one time.</em></h6>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -45,7 +45,7 @@
             </div>*@
             
 
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="Booking.NumMembers" class="control-label">Select the Number of Players in your Round</label>
                 <select asp-for="Booking.NumMembers" type="number" class="form-control">
                 <option value="1">1</option>
@@ -54,20 +54,26 @@
                 <option value="3">4</option>
                 </select>
             <span asp-validation-for="Booking.NumMembers" class="text-danger"></span>
-            </div>
+            </div>*@
             
-
-
-            <div class="form-group">
+            @*<div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
+            </div>*@
+
+            <div class="form-group mt-2">
+                <input type="submit" value="Create Your Booking" class="btn btn-success px-2 py-2" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
+<div> 
+    <a class="btn btn-warning mt-2" asp-page="Index" role="button">Back to Members</a>
 </div>
+
+@*<div>
+    <a asp-page="Index">Back to List</a>
+</div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
