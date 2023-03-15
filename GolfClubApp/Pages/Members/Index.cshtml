@@ -16,7 +16,7 @@
     <a class="btn btn-success" asp-page="Create" role="button">Create Your Membership Profile</a>
 </p>
 </p>
-<table class="table">
+<table id="Exampledatatable" class="table table-bordered">
     <thead>
         <tr>
             <th>
@@ -31,10 +31,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.Member[0].Handicap)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Member[0].Booking)
-            </th>
-            <th></th>
+            </th>*@
+            <th> Membership Options</th>
         </tr>
     </thead>
     <tbody>
@@ -52,15 +52,32 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Handicap)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Booking)
-            </td>
+            </td>*@
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                @*<a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>*@
+
+                    <a class="btn btn-warning btn-sm" asp-page="./Edit" asp-route-id="@item.Id" role="button">Edit</a> |
+                    <a class="btn btn-outline-primary btn-sm" asp-page="./Details" asp-route-id="@item.Id" role="button">Details</a> |
+                    <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id" role="button">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+@section scripts {
+
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.3/af-2.5.2/b-2.3.5/cr-1.6.1/date-1.3.1/datatables.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.datatables.net/v/dt/dt-1.13.3/af-2.5.2/b-2.3.5/cr-1.6.1/date-1.3.1/datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#Exampledatatable').DataTable();
+        });
+    </script>
+}
