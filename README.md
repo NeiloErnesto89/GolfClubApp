@@ -21,7 +21,7 @@ book tee times. Tee time bookings are made in 15 minutes intervals"
 >4. edit booking
 >5. delete member
 >6. delete booking
->7. * each step check DB update
+>7. each step check DB update
 >8. render ranking table
 >9 sort by handicap - ascending and decending 
 >10. sort by gender
@@ -30,3 +30,9 @@ book tee times. Tee time bookings are made in 15 minutes intervals"
 >13. check validation for member same day booking
 >13. check validation for maximum 4 members on one tee time (e.g. joe, john, mary and sally @ 17/03/2023 9.15am)
 >13. check validation for trying to book in the past (date and even current day current time)
+
+
+### **Known Bugs**
+
+>1.	duplication of validation messages
+>2.	edit member booking, if changing the member -> error is produced
