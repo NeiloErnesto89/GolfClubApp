@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/GolfClubApp.styles.css" asp-append-version="true" />
+    @*fontawesome for icons*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
 
 
     
@@ -16,7 +19,8 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">GolfClubApp</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index"><i class="fas fa-golf-ball" style="font-size:50px;color:green;"></i></a>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -49,9 +53,41 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    @*<footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - GolfClubApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            
+                <div class="text-center ">
+
+                    <h6>&copy; Created by Neil Smyth (2023) - <a asp-area="" asp-page="/Privacy">Privacy</a></h6>
+
+                </div>
+                <div class="text-center ">
+
+                    <a href="https://github.com/NeiloErnesto89" target="_blank "><i class="fab fa-github" style="font-size:58px; color:green;"></i></a>
+
+                </div>
+            
+        </div>
+    </footer>*@
+
+    <hr class="featurette-divider">
+
+    <footer class="footer text-muted">
+        <div class="container">
+            
+                <div class="col-md-12 m-2">
+                    <div class="text-center">
+                        <h6>&copy; Created by Neil Smyth (2023) - <a asp-area="" asp-page="/Privacy">Privacy</a></h6>
+                    </div>
+                
+            </div>
+            
+                <div class="col-md-12 mt-3">
+                    <div class="text-center">
+                    <a href="https://github.com/NeiloErnesto89" target="_blank"><i class="fab fa-github" style="font-size: 58px; color: green;"></i></a>
+                    </div>
+                </div>
+           
         </div>
     </footer>
 
